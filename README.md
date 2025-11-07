@@ -232,10 +232,7 @@ COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copiar todos os arquivos do projeto
-COPY app/ /app/
-
-# Coletar arquivos estáticos
-RUN python3 manage.py collectstatic --noinput || true
+COPY app/ ./
 
 # Expor porta 8000
 EXPOSE 8000
@@ -292,7 +289,7 @@ COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copiar todos os arquivos do projeto
-COPY app/ /app/
+COPY app/ ./
 
 # Dar permissão de execução ao script
 RUN chmod +x init.sh

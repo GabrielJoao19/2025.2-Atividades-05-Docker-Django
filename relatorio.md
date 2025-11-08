@@ -46,3 +46,14 @@ Após a estruturação dos diretórios da maneira adequada, o servidor Django fo
 ###  Lição Aprendida
 
 A principal lição aprendida é que a **sincronização exata entre a estrutura local do projeto e a instrução `COPY` do `Dockerfile`** é crítica para a **estabilidade do ambiente de Produção**.
+
+---
+
+### Admin
+![Admin](imgs/admin.png)
+
+---
+
+### Página principal
+![Página principal](imgs/Principal.png)
+

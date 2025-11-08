@@ -1,0 +1,25 @@
+# Usar Fedora como imagem base
+FROM fedora:latest
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Atualizar sistema e instalar dependências
+RUN dnf update -y && \
+    dnf install -y python3 python3-pip python3-devel gcc sqlite && \
+    dnf clean all
+
+# Copiar arquivo de requirements
+COPY requirements.txt .
+
+# Instalar dependências Python
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Copiar todos os arquivos do projeto
+COPY app/ ./
+
+# Expor porta 8000
+EXPOSE 8000
+
+# Comando para executar o servidor
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
